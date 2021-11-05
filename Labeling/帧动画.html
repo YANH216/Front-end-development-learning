@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        padding: 100px;
+    }
+    span {
+        display: inline-block;
+    }
+    .heart-left, .heart-right {
+        width: 50px; height: 80px; background-color: red;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+    }
+    .heart-left {
+        transform: rotateZ(-45deg);
+    }
+    .heart-right{
+        transform: translateX(-28px) rotateZ(45deg);
+    }
+    .heart {
+        animation: beat  10s infinite;
+    }
+    @keyframes beat {
+        25% {
+            transform: translate(100px,0px);
+        }
+        50% {
+            transform: translate(100px,100px);
+        }
+        75% {
+            transform: translate(0px,100px);
+        }
+        100% {
+            transform: translate(0px,0px);
+        }
+    }
+</style>
+<body>
+    <span class="heart">
+        <!--
+            <span class="heart-left"></span><span class="heart-right"></span>
+        -->
+        
+        <img src="images/1.jpg" alt="" width="100px">
+    </span>
+</body>
+</html>

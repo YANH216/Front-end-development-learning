@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 10px;
+            height: 10px;
+            background-color: skyblue;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+    <script>
+        var oDiv = document.getElementsByTagName("div");
+        document.onmousemove = function(ev){
+            var e = ev || window.event;
+            for(var i = oDiv.length-1; i > 0; i--){
+                oDiv[i].style.left = oDiv[i - 1].offsetLeft + 'px';
+                oDiv[i].style.top = oDiv[i - 1].offsetTop + 'px';
+            }//让后一个的位置换到前一个的位置 。
+            oDiv[0].style.left = e.clientX + 'px';
+            oDiv[0].style.top = e.clientY + 'px';
+        }//让第一个跟着鼠标
+    </script>
+</html>

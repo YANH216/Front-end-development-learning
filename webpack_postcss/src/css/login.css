@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  height: 20rem;
+  color: rgba(18, 52, 86, 0.5);
+  font-size: 15rem;
+  transition-property: height;
+  transition-duration: 3s;
+  user-select: none;
+  background: linear-gradient(to bottom, white, black);
+}
+
+.title:hover {
+  height: 40rem;
+}

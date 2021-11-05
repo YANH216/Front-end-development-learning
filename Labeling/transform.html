@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0; padding: 0;
+    }
+    .box {
+        float: left; position: relative; width: 300px; height: 300px;
+        margin: 100px; overflow: hidden;
+    }
+    .box > img {
+        width: 300px; height: 300px;
+    }
+    .box > * {
+        transition: 1s; position: absolute; left: 0px; top: 0px;
+    }
+    .box h2 {
+        color: black; width: 200px;
+        transform: translateX(10px) translateY(250px);
+    }
+    .box p{
+        color: black;
+    }
+    .box p:nth-of-type(1) {
+        transform: translateY(140px) translateX(-60px);
+    }
+    .box p:nth-of-type(2) {
+        transform: translateY(180px) translateX(-60px);
+        transition: 1s 0.1s;
+    }
+    .box p:nth-of-type(3) {
+        transform: translateY(220px) translateX(-60px);
+        transition: 1s 0.2s;
+    }
+    .box:hover p:nth-of-type(1) {
+        transform: translateY(140px) translateX(60px);
+    }
+    .box:hover p:nth-of-type(2) {
+        transform: translateY(180px) translateX(60px);
+    }
+    .box:hover p:nth-of-type(3) {
+        transform: translateY(220px) translateX(60px);
+    }
+    .box:hover img {
+        transform:perspective(1000px) rotateY(50deg);
+    }
+</style>
+<body>
+    <div class="box">
+        <img src="images/1.jpg" alt="">
+        <h2>头像</h2>
+        <p class="p1">就这儿？</p>
+        <p class="p2">就这儿？</p>
+        <p class="p3">就这儿？</p>
+    </div>
+</body>
+</html>

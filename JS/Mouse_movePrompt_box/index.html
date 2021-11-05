@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            width: 80px;
+            color: skyblue;
+            font-size: 50px;
+            display: block;
+            text-decoration: none;
+        }
+        #div0 {
+            width: 200px;
+            height: 100px;
+            font-size: 70px;
+            text-align: center;
+            color: white;
+            line-height: 100px;
+            display: none;
+            background-color: grey;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <a href="">123</a>
+    <a href="">456</a>
+    <a href="">789</a>
+    <div id="div0"></div>
+</body>
+    <script>
+        var oDiv = document.getElementById("div0");
+        var oAs = document.getElementsByTagName("a");
+        var textArr = ['123', '456', '789'];
+        for(var i = 0; i < oAs.length; i++){
+            oAs[i].index = i;
+            oAs[i].onmouseenter = function(){
+                oDiv.innerHTML = textArr[this.index];
+                oDiv.style.display = "block";
+            }
+            oAs[i].onmouseleave = function(){
+                oDiv.style.display = "none";
+            }
+            oAs[i].onmousemove = function(ev){
+                var e = ev || window.event;//获取事件对象
+                oDiv.style.left = e.clientX + 20 + 'px';
+                oDiv.style.top = e.clientY + 20 + 'px';
+            }
+
+        }
+    </script>
+</html>

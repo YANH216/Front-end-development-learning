@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<style>
+    div.container {
+        margin-bottom: 5rem;
+    }
+    [class*=col] {
+        border: 3px solid black;
+        margin-bottom: 10px;
+    } 
+</style>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            1 of 2
+          </div>
+          <div class="col">
+            2 of 2
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm"> <!-- col-sm: 当显示宽度到sm（官网上定义的宽度）以下时，col-sm自动换到下一行 -->
+            1 of 3
+          </div>
+          <div class="col-sm">
+            2 of 3
+          </div>
+          <div class="col-sm">
+            3 of 3
+          </div>
+        </div>
+      </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">AAA</div>
+            <div class="col">BBB</div>
+            <div class="col">CCC</div>
+            <div class="w-100"></div> <!-- 换行，若不加则在一行 -->
+            <div class="col">DDD</div>
+            <div class="col">EEE</div>
+            <div class="col">FFF</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">AAA</div>
+            <div class="col-6">BBB</div> <!-- col-6表示这一行占12列的6列宽 *因为gribsystem将页面分成12份 -->
+            <div class="col">CCC</div>
+        </div>
+        <div class="row">
+            <div class="col">AAA</div>
+            <div class="col-8">BBB</div> <!-- 同col-6,这里占8列 -->
+            <div class="col">CCC</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-auto">AAAAAAAAAAAAA</div> <!-- col-auto表示按照内容宽度分配大小 -->
+            <div class="col-auto">BBBBBB</div> 
+            <div class="col-auto">CCCCCCCCCCCCCCCCCCCCCCCCCCC</div>
+        </div>
+    </div>
+    <div class="card text-left">
+      <img class="card-img-top" src="holder.js/100px180/" alt="">
+      <div class="card-body">
+        <h4 class="card-title">Title</h4>
+        <p class="card-text">Body</p>
+      </div>
+    </div>
+    <div class="btn-toolbar" role="toolbar" aria-label="">
+        <div class="btn-group" role="group" aria-label="">
+            <button type="button" class="btn btn-primary">AAA</button>
+            <button type="button" class="btn btn-primary">BBB</button>
+            <button type="button" class="btn btn-primary">CCC</button>
+        </div>
+        <div class="btn-group" role="group" aria-label="">
+            <button type="button" class="btn btn-primary">DDD</button>
+            <button type="button" class="btn btn-primary">FFF</button>
+        </div>
+    </div>
+</body>
+</html>

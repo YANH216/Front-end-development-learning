@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            width: 200px;
+            height: 300px;
+            border: 3px solid black;
+            border-radius: 5px;
+            margin: auto;
+        }
+        #username {
+            width: 180px;
+            height: 30px;
+            border: 2px solid black;
+            border-radius: 5px;
+            display: flex;
+            margin: auto;
+            margin-top: 5px;
+        }
+        #span1 {
+            width: 180px;
+            height: 50px;
+            font-size: small;
+            display: flex;
+            margin: auto;
+        }
+        #pwd {
+            width: 180px;
+            height: 30px;
+            border: 2px solid black;
+            border-radius: 5px;
+            display: flex;
+            margin: auto;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <input type="text" id="username" placeholder="邮箱地址" onblur="verify()">
+        <span id="span1">6~18个字符，可使用数字，字母，下划线。需要以字母开头</span>
+        <input type="text" id="pwd" placeholder="密码">
+    </form>
+
+
+    <script src="../tool.js"></script>
+    <script>
+        function verify(){
+            var oUsername = document.getElementById("username");
+            var oSpan = document.getElementById("span1");
+            var oValue = oUsername.value;
+            if(oValue.length < 6 || oValue.length > 18){
+                oSpan.innerHTML = "应该输入6~18个字符";
+            }else if(!isLetter(oValue[0])){
+                oSpan.innerHTML = "第一个字符应该是字母";
+            }else{
+                var isYes = true;
+                for(var i = 0; i < oValue.length; i++){
+                    if(!isDEF(oValue[i])){
+                        isYes = false;
+                        break;
+                    }
+                }
+                if(isYes){
+                    oSpan.innerHTML = "可以注册";
+                }else{
+                    oSpan.innerHTML = "含有非法字符";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

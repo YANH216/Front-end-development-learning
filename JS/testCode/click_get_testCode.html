@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #div1 {
+            width: 500px;
+            height: 150px;
+            border: 1px solid black;
+            line-height: 150px;
+            font-size: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">000000</div>
+    <button onclick="btnClick()">获取验证码</button>
+
+
+    <script src="../tool.js"></script>
+    <script>
+        function btnClick(){
+            var oDiv = document.getElementById("div1");//获取id为div1的对象
+            oDiv.innerHTML = testCode(6); //引用tool.js中testCode函数，innerHTML：给获取到的对象赋值。
+        }
+    </script>
+</body>
+</html>

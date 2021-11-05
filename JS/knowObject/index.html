@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 一辆车以时速60km的速度跑在长度为1000km的路上，跑完要花多长时间
+        // 面向过程编程:
+
+
+        /* var hour = 1000 / 60;
+        alert(hour); */
+
+
+        // 面向对象编程
+        var car = {
+            speed: 60,
+            run: function(road){
+                return road.length / car.speed;
+            }
+        }
+        var road1 = {
+            length: 1000
+        }
+        var hour = car.run(road1);
+        alert(hour.toFixed(2)); // toFixed()括号中是几，就保留几位小数。
+    </script>
+</body>
+</html>

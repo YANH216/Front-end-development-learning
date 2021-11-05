@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #div1 {
+            width: 200px;
+            height: 300px;
+            border: 5px solid black;
+            margin: auto;
+        }
+        #div2 {
+            width: 160px;
+            height: 50px;
+            border: 2px solid black;
+            font-size: 20px;
+            margin: auto;
+            margin-top: 20px;
+            line-height: 50px;
+            text-align: center;
+        }
+        button {
+            width: 100px;
+            height: 50px;
+            margin: auto;
+            margin-top: 20px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <span id="hour">00</span>
+            <span>:</span>
+            <span id="min">00</span>
+            <span>:</span>
+            <span id="sec">00</span>
+        </div>
+        <br>
+        <button id="stp">开始</button>
+        <button id="reset">复位</button>
+    </div>
+</body>
+<script>
+    function $(id){
+        return document.getElementById(id);
+    }
+
+    var i = 0;//总秒数
+    var timer = null;//记录定时器的返回值
+    var isRunning = false;//代表当前定时器是否运行
+
+    function start() {
+        timer = setInterval(function(){
+            i++;
+            $("sec").innerHTML = doubleNum(i % 60);
+            $("min").innerHTML = doubleNum(parseInt(i / 60) % 60);
+            $("hour").innerHTML = doubleNum(parseInt(i / 3600));
+        },1000);
+    }
+
+    //暂停
+    function pause(){
+        clearInterval(timer);
+    }
+
+    $("stp").onclick = function(){
+        if(!isRunning){
+            $("stp").innerHTML = "暂停";
+            isRunning = true;
+            start();
+        }else{
+            $("stp").innerHTML = "开始";
+            isRunning = false;
+            pause();
+        }
+    }
+
+    //复位
+    $("reset").onclick = function(){
+        clearInterval(timer);
+        i = 0;
+        isRunning = false;
+        $("stp").innerHTML = "开始";
+        $("sec").innerHTML = "00";
+        $("min").innerHTML = "00";
+        $("hour").innerHTML = "00";
+    }
+
+    function doubleNum(n){
+        if(n < 10){
+            return "0" + n;
+        }else{
+            return n;
+        }
+    }
+</script>
+</html>
