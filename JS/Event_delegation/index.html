@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">添加节点</button>
+    <ul id="ul0">
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+        <li>5555</li>
+    </ul>
+</body>
+    <script>
+        var oUl = document.getElementById("ul0");
+        var aLis = document.getElementsByTagName("li");
+        var oBtn = document.getElementById("btn");
+        /* for(var i = 0; i < aLis.length; i++){
+            aLis[i].onclick = function(){
+                this.style.backgroundColor = "black";
+            }
+        } 
+        这种方式添加事件浪费资源，后续添加节点不会起作用。 */
+
+        oUl.onclick = function(ev){
+            var e = ev || window.event;
+            var target = e.target || window.event.srcElement;
+            if(target.nodeName.toLowerCase() == "li"){
+                if(target.style.backgroundColor == ""){
+                    target.style.backgroundColor = "black";
+                }else{
+                    target.style.backgroundColor = "";
+                }
+            }
+        }
+        var i = 6;
+        oBtn.onclick = function(){
+            var newNode = document.createElement("li");
+            newNode.innerHTML = i++ * 1111;
+            oUl.appendChild(newNode);
+        }
+
+    </script>
+</html>
