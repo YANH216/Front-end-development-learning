@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    <script>
+
+        // Object.assign  合并多个对象。
+
+        var obj1 = {
+            a : 10
+        }
+        var obj2 = {
+            b : 20
+        }
+        var obj3 = {
+            c : 30,
+            d : 40,
+            arr : [50, 60]
+        }
+        var obj = Object.assign(obj1, obj2,obj3);
+        console.log(obj);//修改前
+
+
+        obj3.c = 100;
+        obj3.arr.push(120);
+        // 当对被合并对象中的属性进行重新赋值时，对普通属性的值进行修改并不会影响到合并后的对象。但对数组或复合类型的属性进行修改时，合并后的对象中的属性的值发生了改变，因为Object.assign是浅拷贝。一般对象是复制了新的属性，而数组或复合对象只复制了地址。
+
+        console.log(obj);//修改后
+        console.log(obj3);
+
+    </script>
+</html>

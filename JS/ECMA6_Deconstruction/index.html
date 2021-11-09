@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+    <script>
+        // 1.中括号解构
+        // 2.大括号解构
+
+        // 1.中括号解构
+        /* var [x, y] = [10, 20];
+        alert(x + ',' + y); */
+
+        /* var [x, [a, b], y] = [10, [2, 4], 20];
+            alert(x + ',' + y + ',' + a + ',' + b); */
+        
+
+        // 2.大括号解构
+        /* var {a, b, c} = {
+            a : 10,
+            b : 20,
+            c : 30
+        };
+        alert(a + ',' + b + ',' + c); */
+
+        // 解构的好处
+        // 1.互换值
+
+
+        /* var [x, y] = [10, 20];
+        [x, y] = [y, x];
+        alert(x + ',' + y); */
+
+
+        // 2.函数可以返回多个值
+        
+        /* function show(){
+            return [20, 40, 60];
+        }
+        
+        var [a, b, c] = show();
+
+        alert(a + ',' + c); */
+
+
+
+        // 3.不用刻意按照函数的形参设置的顺序去赋值。
+                // 另外 参数可以附带默认值。在形参中赋的值是默认值。
+        /* function showSelf({name, age = 100, sex}){
+            alert("姓名" + name + "," + age + "岁," + "性别" + sex);
+        }
+        showSelf({
+            sex : "男",
+            age : 50,
+            name : "小明"
+        }); */
+
+
+
+        // 4.可以快速取出数组中的值(了解就行)
+
+        var arr = [10, 20, 30, 40, 50];
+        var {0:first, 4:last} = arr;
+        alert(first);
+        alert(last);
+    </script>
+</html>

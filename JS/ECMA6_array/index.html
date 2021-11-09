@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+    <script>
+        // ECMA6 新数组方法
+
+
+        // var aLis = document.getElementsByTagName("li");
+
+
+        // 通过getElementByTagName或getElementByClassName获取到的数组 都是伪数组，不能使用数组相关的方法。
+
+        // 1.Array.from() 将伪数组转换成真数组。
+
+            /* aLis = Array.from(aLis);
+                aLis.push("xxx");
+                alert(aLis); */
+
+        // 2.find()  短路操作：符合条件 就停止执行。
+            // 功能：找到符合条件的第一个值。
+
+            var arr = [10, 20, 30, 40, 50];
+            /* var A = arr.find(function(item){
+                return item > 20;
+            });
+                alert(A); */
+
+            // 对应箭头函数
+            /* var A = arr.find(item => item > 20);
+                alert(A); */
+
+        // 3.findIndex() 找到符合条件的值的下标。
+
+            var A = arr.findIndex(item => item > 20);
+            alert(A);
+
+
+    </script>
+</html>

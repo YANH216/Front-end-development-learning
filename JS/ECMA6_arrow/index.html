@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    <script>
+        var arr = [10, 20, 30, 40, 50];
+        /* var newArr = arr.filter(function(item){
+            return item > 30;
+        });
+        alert(newArr); */
+
+        // 对应箭头函数：
+        /* var newArr = arr.filter(item => item > 30);
+        alert(newArr); */
+
+        /* var newArr = arr.map(function(item){
+            return item * 2;
+        });
+        alert(newArr); */
+
+        // 对应箭头函数：
+        var newArr = arr.map(item => item * 2);
+        alert(newArr);
+
+
+        /* 
+            1.箭头函数，不能用new调用
+            2.箭头，如果返回值是一个对象，要在大括号外面加小括号。
+            3.箭头函数中的this，指向的当前对象的上一级主人。
+         */
+
+    </script>
+</html>

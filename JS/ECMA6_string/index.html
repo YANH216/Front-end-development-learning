@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    <script>
+        // ECMA6 字符串  通过 `` (tab键上面)
+        // 通过 `` 创建的字符串中间想怎么写就怎么写。
+
+
+
+        /* var str = `hello 
+        world`;
+        alert(str); */
+
+
+        // 在变量与字符链接时，不用+，用${}。另外${}中还可以些函数。
+        function showSelf({name, age = 100, sex}){
+            alert(`姓名${name},${Math.max(20,50,100)}岁,性别${sex}。`);
+        }
+        showSelf({
+            sex : "男",
+            age : 50,
+            name : "小明"
+        });
+
+    </script>
+</html>
