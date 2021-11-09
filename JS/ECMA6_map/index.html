@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    <script>
+        let map = new Map();
+
+        // 添加数据
+        map.set("张三", "18");
+        map.set("李四", "20");
+        map.set("王五", "23");
+
+        console.log(map);
+
+
+        // 取值
+
+        alert(map.get(key = "张三"));
+
+        // map遍历
+
+        for(let [key, value] of map){
+            console.log(key, value);
+        }
+
+    </script>
+</html>

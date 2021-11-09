@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    <script>
+        /* 
+            prototype：原型对象
+            用在构造函数上， 可以给构造函数的原型prototype，添加方法
+            1.如果将方法添加到构造函数的原型prototype对象上
+            2.构造函数构造出来的对象共享原型上所有的方法。
+         */
+        var arr1 = [10, 20, 30, 40, 50, 60];
+        var arr2 = [1, 2, 3, 4, 5, 6];
+
+        Array.prototype.sum = function(){
+            var res = 0;
+            for(var i = 0; i < this.length; i++){
+                res += this[i];
+            }
+            return res;
+        }// Array是自带的数组构造函数。
+
+        document.write(`数组一的和:${arr1.sum()}<br>`);
+        document.write(`数组二的和:${arr2.sum()}<br>`);
+
+        
+        // 自建构造函数
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype.showName = function(){
+            document.write(`姓名：${this.name}<br>`);
+        }
+        Person.prototype.showAge = function(){
+            document.write(`年龄：${this.age}<br>`);
+        }
+
+        var p1 = new Person("小明", 20);
+        var p2 = new Person("小红", 30);
+        p1.showName();
+        p1.showAge();
+        p2.showName();
+        p2.showAge();
+        
+    </script>
+</html>

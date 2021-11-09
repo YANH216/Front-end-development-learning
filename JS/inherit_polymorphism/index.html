@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    <script>
+        function Dog({name, type, age}){
+            this.name = name;
+            this.type = type;
+            this.age = age;
+        }
+
+        Dog.prototype = {
+            run: function(){
+                alert(`${this.name}跑得快`);
+            },
+            showSelf: function(){
+                alert(`一条${this.age}岁的叫${this.name}的${this.type}`);
+            }
+        }
+
+
+        //继承Dog原有的属性，并添加新的属性。
+        function Teddy({name, type, age, color}){
+            Dog.call(this, {
+                name: name,
+                type: type,
+                age: age
+            })
+            this.color = color;
+        }
+
+        //原型链继承
+        for(var funcName in Dog.prototype){
+            Teddy.prototype[funcName] = Dog.prototype[funcName];
+        }
+        
+        Teddy.prototype.showColor = function(){
+            alert(`一条${this.color}的${this.type}`);
+        }
+
+        // 多态：重写父级的方法。并不会影响父级的方法。
+        Teddy.prototype.showSelf = function(){
+            alert(`一条${this.age}岁并且是${this.color}叫${this.name}还跑得快的${this.type}`);
+        }
+
+
+        // 调用子级的方法
+        var xiaoming = new Teddy({
+            name: "小明",
+            type: "泰迪",
+            age: 4,
+            color: "白色"
+        });
+
+        xiaoming.showSelf();
+
+
+        // 调用父级的方法
+        var xiaohong = new Dog({
+            name: "小红",
+            type: "土狗",
+            age: 3,
+            color: "黄色"
+        });
+
+        xiaohong.showSelf();
+
+        /* 
+            继承和多态：同一件事情的两种完全不同的侧重
+            继承：侧重从父级构造函数，继承到的属性和方法。
+            多态：侧重子级重写和新增的属性和方法。
+         */
+    </script>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    <script>
+        /*
+            集合：
+                1.不重复
+                2.无序
+                
+                
+            set
+            map
+         */
+
+
+         let imgs = new Set();
+
+         imgs.add(100);
+         imgs.add(100);
+         imgs.add("hello");
+         imgs.add("hello");
+         imgs.add(true);
+         imgs.add(new String("world"));//new String()每次创建的对象都是不同的，所以集合中有两个world ，但这两个world不是同一个。
+         imgs.add(new String("world"));
+
+        //  console.log(imgs);
+
+        /* 
+            集合的遍历
+
+            for...of
+
+         */
+
+         for(let item of imgs.values()){
+             console.log(item);
+         }
+
+         for(let item of imgs.entries()){
+             console.log(item);
+         }
+
+
+        /*  //数组变集合
+            var set = new Set([10, 10, 20, 20, 30, 30, 40, 40]);
+
+            //集合变数组
+            var arr = [...set];
+            alert(arr); 
+        */
+
+        // 数组去重
+            var arr = [10, 10, 20, 20, 30, 30, 40, 40];
+            newArr = [...new Set(arr)];
+            alert(newArr);
+    </script>
+</html>
