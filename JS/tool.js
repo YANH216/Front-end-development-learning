@@ -51,7 +51,7 @@ function testCode(n) {
     return (arr.join(""));
 }
 
-// 判断单个字符是否是小写字母、大写字母、0~9的数字、下划线。
+// 判断单个字符是否是小写字母、大写字母、0~9的数字、下划线。可用正则表达式判断
 function isDEF(charStr) {
     if(charStr >= "a" && charStr <= "z" || charStr >= "A" && charStr <= "Z" || charStr >= 0 && charStr <= 9 || charStr == "_"){
         return true;
@@ -60,7 +60,7 @@ function isDEF(charStr) {
     }
 }
 
-//判断单个字符是否是小写字母、大写字母
+//判断单个字符是否是小写字母、大写字母 。可用正则表达式判断
 function isLetter(charStr) {
     if(charStr >= "a" && charStr <= "z" || charStr >= "A" && charStr <= "Z"){
         return true;
@@ -111,7 +111,10 @@ function stopBubble(e) {
     e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true ;
 }
 
-function drag(node){
+
+//在整个页面拖拽  面向过程的函数
+function drag(id){
+    var node = document.getElementById(id);
     node.onmousedown = function(ev){
         var e = ev || window.event;
         var offsetX = e.clientX - node.offsetLeft;
@@ -147,4 +150,57 @@ function drag(node){
     node.onmouseup = function(){
         document.onmousemove = null;
     }
+}
+
+
+
+//Drag  拖拽  面向对象的构造函数
+function Drag(id){
+    this.node = document.getElementById(id);
+    var _this = this;
+    this.node.onmousedown = function(ev){
+        _this.funcDown(ev);
+    };
+    document.onmouseup = this.funcup;
+}
+
+Drag.prototype.funcDown = function(ev){
+    var e = ev || window.event;
+    this.offsetX = e.clientX - this.node.offsetLeft;
+    this.offsetY = e.clientY - this.node.offsetTop;
+
+    var _this = this;
+    document.onmousemove = function(ev){
+        _this.funcMove();
+    };
+    
+}
+Drag.prototype.funcMove = function(ev){
+    var e = ev || window.event;
+    var l = e.clientX - this.offsetX;
+    var t = e.clientY - this.offsetY;
+    
+    //获取页面宽度和高度
+    var windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
+    var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+    if(l <= 0){
+        l = 0;
+    }
+    if(t <= 0){
+        t = 0;
+    }
+    if(l >= windowWidth - this.node.offsetWidth){
+        l = windowWidth - this.node.offsetWidth;
+    }
+    if(t >= windowHeight - this.node.offsetHeight){
+        t = windowHeight - this.node.offsetHeight;
+    }
+
+    this.node.style.left = l + 'px';
+    this.node.style.top = t + 'px';
+}
+
+Drag.prototype.funcup = function(){
+    document.onmousemove = "null";
 }
