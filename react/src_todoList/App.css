@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+button {
+    border: 0;
+}
+
+.App {
+    width: 500px;
+    min-height: 100px;
+    border: 3px solid rgb(117, 115, 115);
+    margin: auto;
+    border-radius: 5px;
+}
+
