@@ -1,12 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component, lazy, Suspense } from 'react'
 import { NavLink, Route, Routes, Navigate } from 'react-router-dom'
 import Home from './component/Home/Home'
 import About from './component/About/About'
-import Messages from './component/Home/Messages/Messages'
 import News from './component/Home/News/News'
-import Content from './component/Home/Messages/Content/Content'
+import Loading from './component/lazyLoading/Loading'
 
-import './bootstrap/dist/css/bootstrap.css'
+/* import Messages from './component/Home/Messages/Messages'
+import Content from './component/Home/Messages/Content/Content' */
+import './css/bootstrap.css'
+
+// 路由懒加载
+const Messages = lazy(() => import('./component/Home/Messages/Messages'))
+const Content = lazy(() => import('./component/Home/Messages/Content/Content'))
 
 
 export default class App extends Component {
@@ -30,16 +35,19 @@ export default class App extends Component {
                     <div className="col-md-6">
                         <div className="panel">
                             <div className="panel-body">
-                                <Routes>
-                                    <Route path="home/*" element= { <Home /> } >
-                                        <Route path= "news" element= { <News /> } />
-                                        <Route path= "messages" element= { <Messages /> } >
-                                            <Route path= "content/:id/:title" element= { <Content /> } />
+                                <Suspense fallback= { <Loading /> } >
+                                    <Routes>
+                                        <Route path="/home/*" element= { <Home /> } >
+                                            <Route path= "news" element= { <News /> } />
+                                            <Route path= "messages" element= { <Messages /> } >
+                                                <Route path= "content/:id/:title" element= { <Content /> } />
+                                            </Route>
                                         </Route>
-                                    </Route>
-                                    <Route path="about" element= { <About /> } />
-                                    <Route path="*" element={ <Navigate to= "/home/news" /> } />
-                                </Routes>
+                                        <Route path="about" element= { <About /> } />
+                                        {/* 默认索引路由 */}
+                                        <Route index element= { <Navigate to= "/home/news" /> } />
+                                    </Routes>
+                                </Suspense>
                             </div>
                         </div>
                     </div>
