@@ -1,0 +1,27 @@
+$title-h: 20rem;
+$color: #123456;
+$alpha: 0.5;
+$font-size: 15rem;
+$display: grid;
+$t-pr: height;
+$t-du: 3s;
+$t-h: 40rem;
+$n: none;
+$linear-g-tb-w-b: linear-gradient(to bottom, white, black);
+
+body {
+    margin: 0;
+    padding: 0;
+}
+.title {
+    height: $title-h;
+    color: rgba($color, $alpha);
+    font-size: $font-size;
+    transition-property: $t-pr;
+    transition-duration: $t-du;
+    user-select: $n;
+    background: $linear-g-tb-w-b;
+    &:hover {
+        height: $t-h;
+    }
+}
