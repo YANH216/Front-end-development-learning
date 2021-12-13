@@ -1,0 +1,92 @@
+.box {
+    width: 100px;
+}
+
+//注释：Sass和Less  单行注释都不会被编译
+
+/* 但多行注释都会被编译，也就是说双斜杠的注释不会被编译*/
+
+// Less中  创建变量是用@
+@number :111px;
+
+.box {
+    width: @number;
+}
+
+// 插值 
+//     Less是@{}表示插值
+
+
+@key : margin;
+
+.box2 {
+    @{key} :auto;
+}
+
+// 作用域  Less的作用域不受顺序影响
+.box3 {
+    width: @number;
+    @number :222px;
+}
+/* 
+
+选择器嵌套 
+
+*/ 
+ul{
+    list-style: none;
+    li{
+        div{
+            margin :auto;
+        }
+        p{
+            color: black;
+        }
+    }
+}
+/* 
+
+伪类嵌套 
+
+*/
+
+ul{
+    list-style: none;
+    li{
+        div{
+            margin :auto;
+        }
+        p{
+            color: black;
+        }
+    }
+    /* 伪类和标签之前的空格用&去掉 */
+    :hover {
+        color: black;
+    }
+    &:nth-child(1) {
+        color: red;
+    }
+}
+
+/* Less没有属性嵌套 */
+/* 
+
+
+
+*/
+
+/* 运算  单位  颜色*/
+@num : 100px;
+@color : #010203;
+.box4 {
+    width: @num + 10px;
+    height: 10em + @num;
+}
+.box5 {
+    width: @num * 3;
+    height: @num / 3;
+    margin: 100px *3;
+    padding: 100px / 3;
+    color: @color * 2;
+}
