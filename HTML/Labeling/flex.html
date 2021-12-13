@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0; padding: 0;
+    }
+    div {
+        margin: auto;
+        display: flex;
+    }
+    .box {
+        width: 400px; height: 200px;
+        background-color: cornsilk;
+        border: 2px dashed black;
+        border-radius: 5px;
+        margin: auto;
+    }
+    .box1 {
+        width: 100px; height: 180px;
+        background-color: chocolate;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        border: 2px dashed black;
+        border-radius: 5px;
+        margin-right: 0;
+    }
+    .box1 span {
+        font-weight: bold;
+    }
+    .box2 {
+        width: 250px; height: 180px;
+        background-color: cadetblue;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 2px dashed black;
+        border-radius: 5px;
+    }
+    .box2 span {
+        margin: 2%;
+    }
+    .box2 span:nth-of-type(1) {
+        font-weight: bolder;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="box1">
+            <span>31</span>
+            <span>八月</span>
+        </div>
+        <div class="box2">
+            <span>社群大事件</span>
+            <span>你这是什么群啊，害人不浅啊</span>
+        </div>
+    </div>
+</body>
+</html>
